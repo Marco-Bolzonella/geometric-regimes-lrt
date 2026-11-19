@@ -75,27 +75,29 @@ quadrature.
 
 ## Data
 
-The inputs of the case study come from the HEPData record of the ATLAS
-measurement (JHEP 06 (2022) 063), https://www.hepdata.net/record/ins2037744
-(doi:10.17182/hepdata.134011.v2).
+The inputs of the case study come from two ATLAS publications: the
+measurement (JHEP 06 (2022) 063, arXiv:2202.12134), whose HEPData record is
+https://www.hepdata.net/record/ins2037744 (doi:10.17182/hepdata.134011.v2),
+and the global EFT interpretation (arXiv:2604.21670).
 
 - `data/hepdata_134011_table2_abs_ptthad.yaml` (included): Table 2 of the
   record, the absolute differential cross-section in the transverse momentum
   of the hadronically decaying top quark and the Powheg+Pythia8 prediction.
   The data used in the paper are the ratios of the two.
 - `data/covariance_ttbar_boosted_exp_v1_0.yaml` (not included): the 8 x 8
-  covariance matrix of the ratios, as a YAML list of rows under the key
-  `covariance`.
+  covariance matrix of the ratios used in the EFT interpretation of Section 7
+  of arXiv:2202.12134, as a YAML list of rows under the key `covariance`.
 - `data/param_ttbar_boosted_quad_v1_0.yaml` (not included): the bin-wise
   linear and quadratic sensitivities (l_i, q_i) of the fifteen Wilson
-  coefficients, under the key `parameterisation`, with one entry per bin
-  and keys `<op>` (l_i) and `<op>*<op>` (q_i).
+  coefficients, from Section 3.2.2 of arXiv:2604.21670 (MadGraph5_aMC@NLO
+  with the SMEFTatNLO model, next-to-leading order in QCD, Lambda = 1 TeV,
+  U(2)^3 flavour symmetry), under the key `parameterisation`, with one entry
+  per bin and keys `<op>` (l_i) and `<op>*<op>` (q_i).
 
-The last two files are internal inputs of the ATLAS analysis and are not
-distributed; the information they contain can be derived from the HEPData
-record above. Scripts that need them stop with a message if they are
-absent. The tables and figures in `tables/` and `figures/` are those
-obtained with them.
+The last two files are internal inputs of the ATLAS analyses and are not
+distributed; how they were obtained is described in the two publications
+above. Scripts that need them stop with a message if they are absent. The
+tables and figures in `tables/` and `figures/` are those obtained with them.
 
 ## Reproducibility
 
